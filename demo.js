@@ -7,7 +7,7 @@ async function main() {
   genesisBlock.display();
   await genesisBlock.mine(DIFFICULTY);
 
-  const data = ["Kevin"]; //Enter data here
+  const data = ["My Data"]; //Enter data here
 
   const myBlock = new Block(data, genesisBlock.getBlockHash());
   myBlock.display();

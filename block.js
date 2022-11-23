@@ -1,5 +1,7 @@
 const crypto = require("crypto");
 
+const MS = 3; // number of ms to wait between nonce incrementations
+
 class Block {
   constructor(_data = [], _prevBlockHash = "") {
     this.timestamp = Date.now();
@@ -30,7 +32,7 @@ class Block {
       this.nonce++;
       this.hash = this.getBlockHash();
       process.stdout.write(`Trying Nonce: ${this.nonce.toString()}`);
-      await new Promise((resolve) => setTimeout(resolve, 2)); //Wait to allow nonce value to be viewed in console
+      await new Promise((resolve) => setTimeout(resolve, MS)); //Wait to allow nonce value to be viewed in console
     }
 
     process.stdout.write(`\nBlock Mined!`);
